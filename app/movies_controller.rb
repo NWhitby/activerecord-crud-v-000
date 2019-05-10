@@ -31,7 +31,8 @@ def can_be_created_in_a_block(args = __)
   Movie.create do |m|
     m.title = args[:title]
     m.release_date = args[:release_date]
-  end
+    m.save
+  end	  
 end
 
 def can_get_the_first_item_in_the_database
@@ -90,7 +91,7 @@ end
 def can_destroy_a_single_item
   Movie.create(title: "That One Where the Guy Kicks Another Guy Once")
   movie = Movie.find_by(title: "That One Where the Guy Kicks Another Guy Once")
-  movie.destroy 
+  movie.destroy
 end
 
 def can_destroy_all_items_at_once
